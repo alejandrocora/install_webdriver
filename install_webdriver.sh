@@ -9,7 +9,7 @@ echo -n "	> "
 read target
 
 if [ $target == 4 ]; then
- 	 exit N
+ 	 exit
 fi
 
 version=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/mozilla/geckodriver/releases/latest | grep -P '[^tag/]*$' -o)
