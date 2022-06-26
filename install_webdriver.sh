@@ -8,9 +8,9 @@ echo "	4) Exit"
 echo -n "	> "
 read target
 
-# if [ $target == 4 ]; then
-# 	 exit N
-# fi
+if [ $target == 4 ]; then
+ 	 exit N
+fi
 
 version=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/mozilla/geckodriver/releases/latest | grep -P '[^tag/]*$' -o)
 architecture=$(uname -m | grep -P '[^_]*$'  -o)
