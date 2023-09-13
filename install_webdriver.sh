@@ -43,7 +43,7 @@ fi
 
 if [ $target == 2 ] || [ $target == 3 ]; then
 	echo "Installing ChromeDriver."
-	chrome_scrap=$(curl https://chromedriver.chromium.org/downloads 2>&1 | grep -P '(?<=please download ChromeDriver ).*$' -o | sort | uniq | tr "\n" " ")
+	chrome_scrap=$(curl https://chromedriver.chromium.org/downloads 2>&1 | grep -P '\?path=\K\d+\.\d+\.\d+\.\d+' -o | sort -t. -k1,1nr -k2,2nr -k3,3nr -k4,4nr | uniq | tr '\n' ' ')
 	IFS=' ' read -ra chrome_versions <<< $chrome_scrap
 	echo "	Select a ChromeDriver version: "
 	i=0
